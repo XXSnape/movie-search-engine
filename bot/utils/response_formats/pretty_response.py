@@ -3,6 +3,7 @@ from collections.abc import Iterable
 from datetime import date, datetime
 from logging import getLogger
 
+from utils.constants.output_for_user import COMPLETE_SELECTION_OUTPUT
 from utils.validators.validate_data import check_first_arg
 
 logger = getLogger(name=__name__)
@@ -132,7 +133,7 @@ def get_text_for_survey(data: str, combine_selection: bool) -> str:
     middle = "Для отмены выбора, нажмите {} раза.\n\n".format(
         "3" if combine_selection else "2"
     )
-    end = "В конце нажмите «ЗАВЕРШИТЬ🏁»"
+    end = f"В конце нажмите «{COMPLETE_SELECTION_OUTPUT}»"
 
     if combine_selection:
         return f"{start}Чтобы выбрать комбинацию, нажмите 2 раза.\n\n{middle}{end}"
