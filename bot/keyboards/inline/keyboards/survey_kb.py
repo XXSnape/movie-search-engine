@@ -174,10 +174,11 @@ class InlineKbForSurvey(GenerateInlineKeyboardMixin):
         :return: int
         """
         current_state = await cache.get_state()
-        if current_state in (
+        if current_state in {
             "SearchMovieByDataFSM:reviews",
             "SearchMovieByDataFSM:networks",
-        ):
+            "SearchMovieByDataFSM:statuses"
+        }:
             return 2
         return 3
 
