@@ -139,11 +139,14 @@ def get_text_for_survey(data: str, combine_selection: bool) -> str:
     return f"{start}{middle}{end}"
 
 
-def get_russian_date(cur_date: date) -> str:
+def get_russian_date(cur_date: date, is_time_displayed: bool = True) -> str:
     """
     Переводит дату на русский язык
     :param cur_date: дата
+    :param is_time_displayed: True, если нужно, чтобы отображалось время, иначе False
     :return: дата на русском языке
     """
     locale.setlocale(locale.LC_ALL, "ru_RU.UTF-8")
-    return cur_date.strftime("%d %B %Y %H:%M:%S")
+    if is_time_displayed:
+        return cur_date.strftime("%d %B %Y %H:%M:%S")
+    return cur_date.strftime("%d %B %Y")
