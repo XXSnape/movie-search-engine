@@ -16,7 +16,7 @@ from utils.constants.cache_keys import (
     MAX_DATE_CACHE,
     WATCHED_MOVIES_CACHE,
 )
-from utils.constants.output_for_user import REQUIRE_ACTION_OUTPUT, TODAY_OUTPUT
+from utils.constants.output_for_user import REQUIRE_ACTION_OUTPUT, TODAY_OUTPUT, CANCEL_OUTPUT
 from utils.enums.history_data import SelectActionWithHistory
 from utils.tg.calendar import ExtendedSimpleCalendar
 from utils.tg.process_photo import send_photo
@@ -54,7 +54,7 @@ async def get_calendar(cache: FSMContext) -> ExtendedSimpleCalendar:
     """
     dates = await get_data_from_cache(DATES_CACHE, cache=cache)
     return ExtendedSimpleCalendar(
-        cancel_btn="Отменить✖️",
+        cancel_btn=CANCEL_OUTPUT,
         today_btn=TODAY_OUTPUT,
         show_alerts=True,
         available_dates=dates,
