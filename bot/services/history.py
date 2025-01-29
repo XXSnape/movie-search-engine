@@ -46,7 +46,9 @@ async def get_history_by_date(
     movies: Iterable[HistoryModel] = await HistoryRepository.get_objects_by_params(
         session=session, data={"user_tg_id": user_id, "date": date}
     )
-    pretty_date = build_text(f"Дата просмотра: {get_russian_date(date, is_time_displayed=False)}")
+    pretty_date = build_text(
+        f"Дата просмотра: {get_russian_date(date, is_time_displayed=False)}"
+    )
     for movie in movies:
         movie.text = (
             f"{pretty_date}\n\n{movie.text}"  # добавление атрибута text HistoryModel

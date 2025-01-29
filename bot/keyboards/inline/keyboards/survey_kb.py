@@ -177,7 +177,7 @@ class InlineKbForSurvey(GenerateInlineKeyboardMixin):
         if current_state in {
             "SearchMovieByDataFSM:reviews",
             "SearchMovieByDataFSM:networks",
-            "SearchMovieByDataFSM:statuses"
+            "SearchMovieByDataFSM:statuses",
         }:
             return 2
         return 3

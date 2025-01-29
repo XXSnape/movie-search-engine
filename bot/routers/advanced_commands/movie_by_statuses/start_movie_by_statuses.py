@@ -25,5 +25,5 @@ async def handle_statuses_of_movie(callback: CallbackQuery, state: FSMContext) -
         data_fsm=SearchMovieByDataFSM.statuses,
         command=Commands.MOVIE_BY_STATUSES,
         text=STATUS_OUTPUT,
-        combine_selection=False
+        combine_selection=False,
     )
