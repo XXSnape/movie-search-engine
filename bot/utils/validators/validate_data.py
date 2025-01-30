@@ -5,15 +5,15 @@ from typing import Any, Callable
 logger = getLogger(name=__name__)
 
 
-def check_first_arg(func: Callable) -> Any:
+def check_first_arg[T, **P](func: Callable[P, T]) -> Callable[P, T]:
     """
     Декоратор, проверяющий первый аргумент, переданный в функцию
-    :param func: Callable
-    :return: Any
+    :param func: Callable[P, T]
+    :return: Callable[P, T]
     """
 
     @wraps(func)
-    def wrapper(arg, *args):
+    def wrapper(arg: P.args, *args: P.args) -> T:
         """
         Если первый аргумент не является числом, он и возвращается
         :param arg: аргумент для функции
@@ -31,7 +31,7 @@ def get_value(
     json: dict,
     format_result: str = None,
     bad_values: tuple = (None, 0, ""),
-    return_result=None
+    return_result=None,
 ) -> Any:
     """
     Пытается получить значения по переданным ключам
