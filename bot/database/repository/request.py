@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from typing import Sequence
 
 from config.settings import settings
 from database.models import RequestModel
@@ -15,6 +16,7 @@ class RequestRepository(ManagerRepository):
     """
 
     model = RequestModel
+    text: str
 
     @classmethod
     async def delete_requests(cls, session: AsyncSession) -> None:

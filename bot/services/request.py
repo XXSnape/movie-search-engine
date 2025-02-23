@@ -1,3 +1,5 @@
+import datetime
+
 from database.models import RequestModel
 from database.repository.request import RequestRepository
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -52,7 +54,11 @@ async def update_request(session: AsyncSession, id: int, page: int, index: int) 
     await RequestRepository.update_object_by_params(
         session=session,
         filter_data={"id": id},
-        update_data={"page": page, "index": index},
+        update_data={
+            "page": page,
+            "index": index,
+            "date": datetime.datetime.now(datetime.UTC),
+        },
     )
 
 
