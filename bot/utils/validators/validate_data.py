@@ -1,11 +1,15 @@
 from functools import wraps
 from logging import getLogger
-from typing import Any, Callable
+from typing import Any, Callable, Concatenate
 
 logger = getLogger(name=__name__)
 
 
-def check_first_arg[T, **P](func: Callable[P, T]) -> Callable[P, T]:
+def check_first_arg[
+    T, **P
+](func: Callable[Concatenate[int | str, P], T]) -> Callable[
+    Concatenate[int | str, P], T
+]:
     """
     Декоратор, проверяющий первый аргумент, переданный в функцию
     :param func: Callable[P, T]
@@ -13,7 +17,7 @@ def check_first_arg[T, **P](func: Callable[P, T]) -> Callable[P, T]:
     """
 
     @wraps(func)
-    def wrapper(arg: P.args, *args: P.args) -> T:
+    def wrapper(arg: int | str, *args: P.args, **kwargs: P.kwargs) -> T:
         """
         Если первый аргумент не является числом, он и возвращается
         :param arg: аргумент для функции
@@ -21,7 +25,7 @@ def check_first_arg[T, **P](func: Callable[P, T]) -> Callable[P, T]:
         """
         if isinstance(arg, int) is False:
             return arg
-        return func(arg, *args)
+        return func(arg, *args, **kwargs)
 
     return wrapper
 
