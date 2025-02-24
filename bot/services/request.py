@@ -57,7 +57,6 @@ async def update_request(session: AsyncSession, id: int, page: int, index: int) 
         update_data={
             "page": page,
             "index": index,
-            "date": datetime.datetime.now(datetime.UTC),
         },
     )
 
