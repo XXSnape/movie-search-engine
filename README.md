@@ -51,7 +51,7 @@ ___
 * Убедиться, что docker установлен на локальной машине ([Как установить Docker?](https://docs.docker.com/get-started/get-docker/))
 * Склонировать репозиторий на локальную машину
 ```sh
-git https://github.com/raydqver/movie-search-engine.git
+git https://github.com/XXSnape/movie-search-engine.git
 ```
 
 * Создать файл .env, подобный .env.template в корне проекта только с нужными данными:
@@ -66,7 +66,7 @@ docker compose up -d
 ## Какие параметры хранятся в файле .env.template?
 
 #### API_KEY - Ключ для работы с сервисом, предоставляющем информацию
-#### BOT_TOKEN - Токен для взаимодействия с базой данных
+#### BOT_TOKEN - Токен бота
 
 #### HOST - Хост базы данных
 #### PORT - Порт базы данных
