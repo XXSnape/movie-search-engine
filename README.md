@@ -51,7 +51,7 @@ ___
 * Убедиться, что docker установлен на локальной машине ([Как установить Docker?](https://docs.docker.com/get-started/get-docker/))
 * Склонировать репозиторий на локальную машину
 ```sh
-git https://github.com/XXSnape/movie-search-engine.git
+git clone https://github.com/XXSnape/movie-search-engine.git
 ```
 
 * Создать файл .env, подобный .env.template в корне проекта только с нужными данными:
